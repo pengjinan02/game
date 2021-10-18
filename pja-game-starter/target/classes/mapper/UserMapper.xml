@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.pja.mapper.UserMapper">
+
+    <sql id="all_column">
+        id,name,password,reg_dm,upd_dm,state,age,role
+    </sql>
+
+    <select id="selectUserById" parameterType="String" resultType="cn.pja.model.vo.UserDO">
+        select
+        <include refid="all_column"/>
+        from user
+        where id = #{id}
+    </select>
+
+    <select id="selectUserByPassWord" resultType="cn.pja.model.vo.UserDO">
+        select
+        <include refid="all_column"/>
+        from user
+        where id = #{id}
+        and password = #{password}
+
+    </select>
+
+    <insert id="insertUser" parameterType="cn.pja.model.vo.UserDO">
+        insert into user (
+        <include refid="all_column"/> )
+        values(
+        #{userDO.id},
+        #{userDO.name},
+        #{userDO.password},
+        #{userDO.reg_dm},
+        #{userDO.upd_dm},
+        #{userDO.state},
+        #{userDO.age},
+        #{userDO.role}
+        )
+    </insert>
+
+    <update id="updateUserById" parameterType="cn.pja.model.vo.UserDO">
+        update user
+        set
+        name = #{userDO.name},
+        password = #{userDO.password},
+        upd_dm = #{userDO.upd_dm},
+        state = #{userDO.state},
+        age = #{userDO.age},
+        role = #{userDO.role}
+        where id = #{userDO.id}
+    </update>
+
+    <delete id="deleteUserById" parameterType="String">
+        delete from user
+        where id = #{id}
+    </delete>
+
+</mapper>
