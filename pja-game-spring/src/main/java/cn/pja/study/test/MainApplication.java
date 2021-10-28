@@ -1,4 +1,4 @@
-package cn.pja.test;
+package cn.pja.study.test;
 
 import org.springframework.beans.factory.support.AbstractBeanDefinition;
 import org.springframework.beans.factory.support.GenericBeanDefinition;

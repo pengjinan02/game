@@ -29,6 +29,8 @@ dubbo:
     address: zookeeper://192.168.99.100:2181
     # 这个值要设置大一点 如1分钟
     timeout: 60000
+    check: false
+    register: false
   protocol:
     port: 20881
     name: dubbo

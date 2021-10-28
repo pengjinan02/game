@@ -1,4 +1,4 @@
-package cn.pja.test;
+package cn.pja.study.test;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

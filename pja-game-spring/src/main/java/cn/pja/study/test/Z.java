@@ -1,7 +1,7 @@
-package cn.pja.test;
+package cn.pja.study.test;
 
 import org.springframework.stereotype.Component;
 
 @Component
-public class Y {
+public class Z {
 }

@@ -1,6 +1,4 @@
-package cn.pja.basics;
-
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
+package cn.pja.study.basics;
 
 /**
  * java基础-01
