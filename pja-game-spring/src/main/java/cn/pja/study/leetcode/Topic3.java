@@ -8,7 +8,7 @@ import java.util.*;
  * @author 彭金安
  * @DATE 2021/11/10
  */
-public class Solution {
+public class Topic3 {
     public static void main(String[] args) {
 //        执行用时：
 //        2 ms

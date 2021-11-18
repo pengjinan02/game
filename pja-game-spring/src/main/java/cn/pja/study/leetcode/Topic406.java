@@ -31,14 +31,14 @@ public class Topic406 {
             return b[0] - a[0];
         });
 
-        //System.out.println(JSON.toJSONString(people));
+        System.out.println(JSON.toJSONString(people));
         LinkedList<int[]> que = new LinkedList<>();
 
         for (int[] p : people) {
             que.add(p[1],p);
         }
 
-        //System.out.println(JSON.toJSONString(que));
+        System.out.println(JSON.toJSONString(que));
         return que.toArray(new int[people.length][]);
     }
 }
