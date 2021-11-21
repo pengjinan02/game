@@ -28,11 +28,7 @@ public class UserServerImpl implements UserService {
         UserVO user = userManager.selectUserById(uid);
         if (user == null) {
             // todo 警告日志模板
-            LogUtils.warn(this.getClass().getName(),
-                    Thread.currentThread().getStackTrace()[1].getMethodName(),
-                    "123",
-                    "444",
-                    JSON.toJSONString(user));
+            //LogUtils.info("");
         }
 
         return user;
