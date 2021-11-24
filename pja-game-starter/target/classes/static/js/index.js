@@ -1,3 +1,0 @@
-function login() {
-   $("form").submit();
-}
