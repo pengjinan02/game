@@ -35,17 +35,15 @@ public class ExceptionInterceptor {
     public void doBefore(JoinPoint joinPoint) {
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
-        // url
-        LOGGER.info("url={}",request.getRequestURL());
-        // method
-        LOGGER.info("method={}",request.getMethod());
-        // ip
-        LOGGER.info("id={}",request.getRemoteAddr());
-        // class_method
-        LOGGER.info("class_method={}",joinPoint.getSignature().getDeclaringTypeName() + "," + joinPoint.getSignature().getName());
-        // args[]
-        LOGGER.info("args={}",joinPoint.getArgs());
-        LOGGER.info("target={}", joinPoint.getTarget());
+        StringBuilder sb = new StringBuilder()
+                .append("url=").append(request.getRequestURL())
+                .append(";").append("method={}").append(request.getMethod())
+                .append(";").append("ipAddress={}").append(request.getRemoteAddr())
+                .append(";").append("classMethod={}").append(joinPoint.getSignature().getDeclaringTypeName()).append(".").append(joinPoint.getSignature().getName())
+                .append(";").append("args={}").append(joinPoint.getArgs())
+                .append(";").append("target={}").append(joinPoint.getTarget())
+                ;
+        LOGGER.info(sb.toString());
     }
 
     @Around("log()")

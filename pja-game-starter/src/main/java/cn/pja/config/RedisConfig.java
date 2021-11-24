@@ -79,10 +79,8 @@ public class RedisConfig {
 
     Jackson2JsonRedisSerializer jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer(Object.class);
 
-    /*@Bean
+    @Bean
     public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
-        LogUtils.info("6666666666666666","");
-
         RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
         // 设置工厂连接
         redisTemplate.setConnectionFactory(redisConnectionFactory);
@@ -90,7 +88,7 @@ public class RedisConfig {
         this.setSerializeConfig(redisTemplate, redisConnectionFactory);
 
         return redisTemplate;
-    }*/
+    }
 
     /**
      * 设置自定义序列化方式
@@ -116,7 +114,6 @@ public class RedisConfig {
         // hashValue的序列化方式设为jackson
         redisTemplate.setHashValueSerializer(jackson2JsonRedisSerializer);
     }
-
     @Bean
     public LettuceConnectionFactory lettuceConnectionFactory() {
         GenericObjectPoolConfig genericObjectPoolConfig = new GenericObjectPoolConfig();
@@ -141,7 +138,7 @@ public class RedisConfig {
 //  factory.setValidateConnection(false);
         return factory;
     }
-
+/*
     @Bean
     public RedisTemplate<String, Object> redisTemplate(LettuceConnectionFactory lettuceConnectionFactory) {
         RedisTemplate<String, Object> template = new RedisTemplate<>();
@@ -163,7 +160,7 @@ public class RedisConfig {
         template.setHashValueSerializer(jackson2JsonRedisSerializer);
         template.afterPropertiesSet();
         return template;
-    }
+    }*/
 
 
     @Bean("redisCacheManager")
