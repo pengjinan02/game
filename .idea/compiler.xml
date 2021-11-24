@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="pja-game-spring" />
+        <module name="pja-game-starter" />
+        <module name="pja-game-notice" />
+        <module name="pja-game-common" />
+        <module name="pja-game-api" />
+        <module name="pja-game-web" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="pja-game" target="8" />
+      <module name="pja-game-api" target="8" />
+      <module name="pja-game-common" target="8" />
+      <module name="pja-game-notice" target="8" />
+      <module name="pja-game-spring" target="8" />
+      <module name="pja-game-starter" target="8" />
+      <module name="pja-game-web" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
