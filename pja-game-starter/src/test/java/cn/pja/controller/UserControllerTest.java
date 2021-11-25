@@ -1,6 +1,7 @@
 package cn.pja.controller;
 
-import cn.pja.start.MainApplication;
+import cn.pja.starter.controller.UserController;
+import cn.pja.starter.start.MainApplication;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -40,8 +40,10 @@ spring:
     cache: false
 
 mybatis:
+  jdbc:
+    jar: C:\Users\彭金安\.m2\repository\mysql\mysql-connector-java\8.0.11\mysql-connector-java-8.0.11.jar
   mapper-locations: classpath:/mapper/*.xml
-  type-aliases-package: cn.pja.model.vo
+  type-aliases-package: cn.pja.starter.model.vo
   configuration:
     # 开启驼峰命名
     map-underscore-to-camel-case: true

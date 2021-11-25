@@ -1,7 +1,8 @@
 package cn.pja.service
 
-import cn.pja.model.vo.UserVO
-import cn.pja.start.MainApplication
+import cn.pja.starter.model.vo.UserVO
+import cn.pja.starter.service.UserService
+import cn.pja.starter.start.MainApplication
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import spock.lang.Specification

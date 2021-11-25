@@ -14,7 +14,7 @@ spring:
 
 mybatis:
   mapper-locations: classpath:/mapper/*.xml
-  type-aliases-package: cn.pja.user.model.dto
+  type-aliases-package: cn.pja.api.user.model.dto
   configuration:
     # 开启驼峰命名
     map-underscore-to-camel-case: true
