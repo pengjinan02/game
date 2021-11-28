@@ -1,5 +1,7 @@
 package cn.pja.study.test;
 
+import com.alibaba.fastjson.JSONObject;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -9,6 +11,24 @@ import java.security.NoSuchAlgorithmException;
  */
 public class TestMain {
     public static void main(String[] args) {
+        String topic = "123";
+        String tags = "55 || 66 || 77";
+        X x = new X(){{
+            setId("888");
+            setAge(9);
+            setName("高手");
+        }};
+        StringBuilder message = new StringBuilder()
+                .append("\"topic\":").append("\"").append(topic).append("\"")
+                .append("\"tags\":").append("\"").append(tags).append("\"")
+                .append("\"message\":").append("\"").append(x).append("\"")
+                ;
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("topic", topic);
+        jsonObject.put("tags", tags);
+        jsonObject.put("message", x);
+        System.out.println(jsonObject);
+
         String password = getMD5Password("123456");
         System.out.println("len"+password.length()+"password:"+password);
 

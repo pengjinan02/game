@@ -40,11 +40,13 @@ import java.util.Set;
  *
  * 问题：加载此文件时，遇到找不到netty的里的类。需要额外导入netty的包，如果包里的类冲突，就删除一个
  *
+ * todo 不用的时候注释掉注解，免得每次都要启动
+ *
  * @author 彭金安
  * @DATE 2021/11/21
  */
-@Configuration
-@EnableCaching
+//@Configuration
+//@EnableCaching
 public class RedisConfig {
     @Value("${spring.redis.database}")
     private int database;

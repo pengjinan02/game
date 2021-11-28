@@ -58,6 +58,12 @@
             <groupId>org.apache.dubbo</groupId>
             <artifactId>dubbo-spring-boot-starter</artifactId>
             <version>${dubbo.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>io.netty</groupId>
+                    <artifactId>netty-all</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.101tec</groupId>
@@ -130,7 +136,11 @@
             <artifactId>commons-pool2</artifactId>
             <version>${commons-pool2-version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.apache.rocketmq</groupId>
+            <artifactId>rocketmq-spring-boot-starter</artifactId>
+            <version>${spring-boot-rocketmq.version}</version>
+        </dependency>
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-resolver-dns</artifactId>
@@ -185,7 +195,7 @@
                         <groupId>mysql</groupId>
                         <artifactId>mysql-connector-java</artifactId>
                         <scope>runtime</scope>
-                        <version>8.0.11</version>
+                        <version>${mysql-connector.version}</version>
                     </dependency>
                 </dependencies>
             </plugin>

@@ -39,12 +39,8 @@ public class ExceptionInterceptor {
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
         StringBuilder sb = new StringBuilder()
-                .append("url=").append(request.getRequestURL())
-                .append(";").append("method={}").append(request.getMethod())
-                .append(";").append("ipAddress={}").append(request.getRemoteAddr())
-                .append(";").append("classMethod={}").append(joinPoint.getSignature().getDeclaringTypeName()).append(".").append(joinPoint.getSignature().getName())
-                .append(";").append("args={}").append(joinPoint.getArgs())
-                .append(";").append("target={}").append(joinPoint.getTarget())
+                .append(";").append("args=").append(joinPoint.getArgs())
+                .append(";").append("method=").append(joinPoint.getSignature().getDeclaringTypeName()).append(".").append(joinPoint.getSignature().getName())
                 ;
         LOGGER.info(sb.toString());
     }

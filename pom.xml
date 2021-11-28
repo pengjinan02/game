@@ -30,6 +30,7 @@
         <spring-boot-aop.version>2.4.0</spring-boot-aop.version>
         <spring-boot-web.version>2.4.0</spring-boot-web.version>
         <spring-boot-mybatis.version>2.2.0</spring-boot-mybatis.version>
+        <spring-boot-rocketmq.version>2.2.0</spring-boot-rocketmq.version>
         <org.lombok.version>1.16.10</org.lombok.version>
         <alibaba-fastjson.version>1.2.76</alibaba-fastjson.version>
         <dubbo.version>2.7.8</dubbo.version>
@@ -72,6 +73,11 @@
             <version>${org.lombok.version}</version>
         </dependency>
         <dependency>
+            <groupId>org.apache.rocketmq</groupId>
+            <artifactId>rocketmq-spring-boot-starter</artifactId>
+            <version>${spring-boot-rocketmq.version}</version>
+        </dependency>
+        <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>${alibaba-fastjson.version}</version>
@@ -98,6 +104,12 @@
             <groupId>org.apache.dubbo</groupId>
             <artifactId>dubbo-spring-boot-starter</artifactId>
             <version>${dubbo.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>io.netty</groupId>
+                    <artifactId>netty-all</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>

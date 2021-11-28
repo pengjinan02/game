@@ -1,4 +1,4 @@
-package cn.pja.service
+package cn.pja.starter.service
 
 import cn.pja.starter.model.vo.UserVO
 import cn.pja.starter.service.UserService

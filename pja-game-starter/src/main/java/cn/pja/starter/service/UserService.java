@@ -22,5 +22,4 @@ public interface UserService {
      */
     ServiceResult<UserVO> userLogin(String id, String password);
 
-    String getDubboString(String name);
 }

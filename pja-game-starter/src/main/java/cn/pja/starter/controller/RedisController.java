@@ -1,5 +1,6 @@
 package cn.pja.starter.controller;
 
+import cn.pja.starter.service.RedisService;
 import cn.pja.starter.utils.RedisUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,6 +21,9 @@ public class RedisController {
     @Autowired
     RedisUtils redisUtils;
 
+    @Autowired
+    RedisService redisService;
+
     @RequestMapping("getValueByKey")
     @ResponseBody
     public String getValueByKey(String key) {
@@ -32,4 +36,9 @@ public class RedisController {
         return redisUtils.setValue(key, value);
     }
 
+    @RequestMapping("search")
+    @ResponseBody
+    public String searchTGoodsInfo(String gid) {
+        return redisService.searchTGoodsInfo(gid);
+    }
 }

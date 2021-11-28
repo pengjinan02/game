@@ -24,6 +24,6 @@ public class UserApiServiceImpl implements UserApiService {
 
     @Override
     public String getMessage(String name) {
-        return name + "真是个帅哥";
+        return name + "真是个帅哥啊啊啊啊";
     }
 }

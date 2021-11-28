@@ -1,6 +1,5 @@
-package cn.pja.controller;
+package cn.pja.starter.controller;
 
-import cn.pja.starter.controller.UserController;
 import cn.pja.starter.start.MainApplication;
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -16,8 +16,6 @@ import org.springframework.stereotype.Service;
 public class UserServerImpl implements UserService {
     @Autowired
     UserManager userManager;
-    @Autowired
-    UserApiService userApiService;
 
     @Override
     public UserVO selectUserByUid(String uid){
@@ -42,13 +40,6 @@ public class UserServerImpl implements UserService {
         }
 
         return ServiceResult.buildDefaultSuccessResult(user);
-    }
-
-    @Override
-    public String getDubboString(String name) {
-        String message = userApiService.getMessage(name);
-        System.out.println(message);
-        return message;
     }
 
 }

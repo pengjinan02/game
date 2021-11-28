@@ -1,5 +1,5 @@
 server:
-  port: 7000
+  port: 7001
 
 spring:
   datasource:
@@ -45,14 +45,22 @@ mybatis:
   mapper-locations: classpath:/mapper/*.xml
   type-aliases-package: cn.pja.starter.model.vo
   configuration:
+    # 二级缓存
+    cache-enabled: true
     # 开启驼峰命名
     map-underscore-to-camel-case: true
-
+    # 打印sql
+    #log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+logging:
+  level:
+    cn.pja.starter.mapper : debug
+# 每次启动都要启动dubbo所以这里暂时去掉
 dubbo:
   application:
     name: pja-game-starter
+  # 关闭注册中心，这样免得每次都要启动他，内存不够啊，这破电脑
   registry:
-    address: zookeeper://192.168.99.100:2181
+    address: # zookeeper://192.168.99.100:2181
     # 这个值要设置大一点 如1分钟
     timeout: 60000
     check: false
@@ -64,4 +72,9 @@ dubbo:
     timeout: 10000
   consumer:
     check: false
+
+rocketmq:
+  name-server: 192.168.99.100:9876
+  producer:
+    group: pja-game-starter-group
 

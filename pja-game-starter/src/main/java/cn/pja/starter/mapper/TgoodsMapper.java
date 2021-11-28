@@ -4,7 +4,10 @@ import cn.pja.starter.model.DO.Tgoods;
 import cn.pja.starter.model.DO.TgoodsExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.Cacheable;
 
+@CacheConfig(cacheNames = "tgoods")
 public interface TgoodsMapper {
     /**
      *
@@ -46,6 +49,7 @@ public interface TgoodsMapper {
      *
      * @mbg.generated
      */
+    @Cacheable(key = "#p0")
     Tgoods selectByPrimaryKey(String gid);
 
     /**

@@ -40,12 +40,6 @@ public class UserController {
     }
 
 
-    @RequestMapping("getDubboString")
-    @ResponseBody
-    public String getDubboString() {
-        return JSON.toJSONString(userServer.getDubboString("彭金安"));
-    }
-
 
     @RequestMapping("login")
     public ModelAndView login(String id, String password) {
