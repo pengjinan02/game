@@ -51,8 +51,42 @@ public class MqProducer {
             jsonObject.put("tags", tags);
             jsonObject.put("message", payload);
             LogUtils.error(LOGGER, ServiceError.MQ_PRODUCER_EXCEPTION, jsonObject.toJSONString());
-            throw new Exception(ServiceError.MQ_PRODUCER_EXCEPTION.getMessage(), e);
+            e.printStackTrace();
         }
     }
 
+    /**
+     * 消息发送
+     * @param topic  topic分组
+     * @param payload 消息体
+     */
+    public void sendMessage(String topic, Object payload) throws Exception {
+        try {
+            template.convertAndSend(topic, payload);
+        } catch (Exception e) {
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("topic", topic);
+            jsonObject.put("message", payload);
+            LogUtils.error(LOGGER, ServiceError.MQ_PRODUCER_EXCEPTION, jsonObject.toJSONString());
+            e.printStackTrace();
+        }
+    }
+
+
+    /**
+     * 消息发送
+     * @param topic  topic分组
+     * @param payload 消息体
+     */
+    public void syncSendMessage(String topic, Object payload) throws Exception {
+        try {
+            template.syncSend(topic, payload);
+        } catch (Exception e) {
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("topic", topic);
+            jsonObject.put("message", payload);
+            LogUtils.error(LOGGER, ServiceError.MQ_PRODUCER_EXCEPTION, jsonObject.toJSONString());
+            e.printStackTrace();
+        }
+    }
 }

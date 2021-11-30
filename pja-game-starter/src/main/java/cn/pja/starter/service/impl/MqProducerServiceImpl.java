@@ -17,5 +17,7 @@ public class MqProducerServiceImpl implements MqProducerService {
     @Override
     public void sendMessage(String message) throws Exception {
         mqProducer.sendMessage("topic-inner", "test-tag", message);
+        mqProducer.sendMessage("topic-inner",  message);
+        mqProducer.syncSendMessage("topic-inner",  message);
     }
 }

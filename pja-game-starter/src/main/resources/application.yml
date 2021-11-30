@@ -1,5 +1,5 @@
 server:
-  port: 7001
+  port: 7002
 
 spring:
   datasource:
@@ -73,8 +73,16 @@ dubbo:
   consumer:
     check: false
 
+
+# 妈蛋，mq的先不管了！！！！代码写完再说
+#  curl https://registry.hub.docker.com/v1/repositories/foxiswho/rocketmq/tags\
+#  | tr -d '[\[\]" ]' | tr '}' '\n'\
+#  | awk -F: -v image='foxiswho/rocketmq' '{if(NR!=NF && $3 != ""){printf("%s:%s\n",image,$3)}}'
 rocketmq:
-  name-server: 192.168.99.100:9876
+  name-server: localhost:9876
   producer:
     group: pja-game-starter-group
+    sendMsgTimeOut: 6000
+
+
 
