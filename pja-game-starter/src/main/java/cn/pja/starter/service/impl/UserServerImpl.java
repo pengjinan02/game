@@ -1,7 +1,6 @@
 package cn.pja.starter.service.impl;
 
-import cn.pja.api.service.UserApiService;
-import cn.pja.starter.contants.ServiceError;
+import cn.pja.starter.contants.GameError;
 import cn.pja.starter.manager.UserManager;
 import cn.pja.starter.model.result.ServiceResult;
 import cn.pja.starter.model.vo.UserVO;
@@ -36,7 +35,7 @@ public class UserServerImpl implements UserService {
         // 2. 获取用户信息
         UserVO user = userManager.selectUserByIdAndPassWord(id, password);
         if (user == null) {
-            return ServiceResult.buildDefaultFailResult(ServiceError.USER_LOGIN_FAIL);
+            return ServiceResult.buildDefaultFailResult(GameError.USER_LOGIN_FAIL);
         }
 
         return ServiceResult.buildDefaultSuccessResult(user);

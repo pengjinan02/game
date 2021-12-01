@@ -1,6 +1,6 @@
 package cn.pja.starter.model.result;
 
-import cn.pja.starter.contants.ServiceError;
+import cn.pja.starter.contants.GameError;
 import lombok.Data;
 
 import java.util.List;
@@ -48,14 +48,14 @@ public class PageResult<T> {
 
     /**
      * 构建查询失败结果
-     * @param serviceError 错误码封装对象
+     * @param gameError 错误码封装对象
      * @return 查询失败的结果
      */
-    public static PageResult buildDefaultFailResult(ServiceError serviceError){
+    public static PageResult buildDefaultFailResult(GameError gameError){
         PageResult<Object> pageResult = new PageResult<>();
         pageResult.setResult(null);
-        pageResult.setErrorCode(serviceError.getCode());
-        pageResult.setErrorMessage(serviceError.getMessage());
+        pageResult.setErrorCode(gameError.getCode());
+        pageResult.setErrorMessage(gameError.getMessage());
         pageResult.setSuccess(false);
         return pageResult;
     }

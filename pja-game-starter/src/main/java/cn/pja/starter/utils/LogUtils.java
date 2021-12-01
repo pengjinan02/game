@@ -1,6 +1,6 @@
 package cn.pja.starter.utils;
 
-import cn.pja.starter.contants.ServiceError;
+import cn.pja.starter.contants.GameError;
 import groovy.util.logging.Slf4j;
 import org.slf4j.Logger;
 import org.springframework.stereotype.Component;
@@ -22,13 +22,13 @@ public class LogUtils {
         logger.warn(message);
     }
 
-    public static void error(Logger logger, ServiceError serviceError) {
-        logger.error("错误码：" + serviceError.getCode() + " 错误信息:" + serviceError.getMessage());
+    public static void error(Logger logger, GameError gameError) {
+        logger.error("错误码：" + gameError.getCode() + " 错误信息:" + gameError.getMessage());
     }
 
-    public static void error(Logger logger, ServiceError serviceError, String args) {
-        logger.error("错误码：" + serviceError.getCode() +
-                " 错误信息：" + serviceError.getMessage() +
+    public static void error(Logger logger, GameError gameError, String args) {
+        logger.error("错误码：" + gameError.getCode() +
+                " 错误信息：" + gameError.getMessage() +
                 " 参数：" + args);
     }
 

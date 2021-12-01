@@ -1,6 +1,6 @@
 package cn.pja.starter.Interceptor;
 
-import cn.pja.starter.exception.ServiceException;
+import cn.pja.starter.exception.GameException;
 import com.alibaba.fastjson.JSON;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -62,7 +62,7 @@ public class ExceptionInterceptor {
 
         try {
             result = proceedingJoinPoint.proceed();
-        } catch (ServiceException e) {
+        } catch (GameException e) {
             LOGGER.error(e.getMessage() + "]\n" +
                     "错误码\t：" + e.getCode() + "\n" +
                     "错误信息\t：" + e.getMessage() + "\n" +

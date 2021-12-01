@@ -1,6 +1,6 @@
 package cn.pja.starter.model.result;
 
-import cn.pja.starter.contants.ServiceError;
+import cn.pja.starter.contants.GameError;
 import lombok.Data;
 
 /**
@@ -30,14 +30,14 @@ public class ServiceResult<T> {
 
     /**
      * 构建查询失败结果
-     * @param serviceError 错误码封装对象
+     * @param gameError 错误码封装对象
      * @return 查询失败的结果
      */
-    public static ServiceResult buildDefaultFailResult(ServiceError serviceError){
+    public static ServiceResult buildDefaultFailResult(GameError gameError){
         ServiceResult<Object> serviceResult = new ServiceResult<>();
         serviceResult.setResult(null);
-        serviceResult.setErrorCode(serviceError.getCode());
-        serviceResult.setErrorMessage(serviceError.getMessage());
+        serviceResult.setErrorCode(gameError.getCode());
+        serviceResult.setErrorMessage(gameError.getMessage());
         serviceResult.setSuccess(false);
         return serviceResult;
     }

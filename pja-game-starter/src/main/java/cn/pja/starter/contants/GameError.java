@@ -6,7 +6,7 @@ package cn.pja.starter.contants;
  * @author 彭金安
  * @DATE 2021/7/25
  */
-public enum ServiceError {
+public enum GameError {
     //====== 通用错误 ======
     ILLEGAL_ARGUMENT_EXCEPTION("E1001", "参数错误"),
     MQ_PRODUCER_EXCEPTION("E1002", "MQ消息发送出错"),
@@ -18,7 +18,7 @@ public enum ServiceError {
     private final String code;
     private final String message;
 
-    ServiceError(String code, String message) {
+    GameError(String code, String message) {
         this.code = code;
         this.message = message;
     }

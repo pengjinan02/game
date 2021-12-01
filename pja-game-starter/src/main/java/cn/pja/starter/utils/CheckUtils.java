@@ -1,6 +1,6 @@
 package cn.pja.starter.utils;
 
-import cn.pja.starter.contants.ServiceError;
+import cn.pja.starter.contants.GameError;
 
 /**
  * 参数校验
@@ -12,7 +12,7 @@ public class CheckUtils {
 
     public static void isTrue(boolean flag) {
         if (flag) {
-            throw new IllegalArgumentException(ServiceError.ILLEGAL_ARGUMENT_EXCEPTION.getMessage());
+            throw new IllegalArgumentException(GameError.ILLEGAL_ARGUMENT_EXCEPTION.getMessage());
         }
     }
 
@@ -22,9 +22,9 @@ public class CheckUtils {
         }
     }
 
-    public static void isTrue(boolean flag, ServiceError serviceError) {
+    public static void isTrue(boolean flag, GameError gameError) {
         if (flag) {
-            throw new IllegalArgumentException(serviceError.getMessage());
+            throw new IllegalArgumentException(gameError.getMessage());
         }
     }
 }
