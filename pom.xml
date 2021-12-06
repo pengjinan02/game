@@ -15,6 +15,7 @@
         <module>pja-game-common</module>
         <module>pja-game-spring</module>
         <module>pja-game-api</module>
+        <module>pja-game-elasticsearch</module>
     </modules>
 
     <properties>
@@ -25,12 +26,14 @@
         <pja-game-common.version>1.0-SNAPSHOT</pja-game-common.version>
         <pja-game-spring.version>1.0-SNAPSHOT</pja-game-spring.version>
         <pja-game-api.version>1.0-SNAPSHOT</pja-game-api.version>
+        <pja-game-elasticsearch.version>1.0-SNAPSHOT</pja-game-elasticsearch.version>
         <!-- 外部包 -->
         <spring-boot-starter.version>2.4.0</spring-boot-starter.version>
         <spring-boot-aop.version>2.4.0</spring-boot-aop.version>
         <spring-boot-web.version>2.4.0</spring-boot-web.version>
         <spring-boot-mybatis.version>2.2.0</spring-boot-mybatis.version>
         <spring-boot-rocketmq.version>2.2.0</spring-boot-rocketmq.version>
+        <spring-boot-test.version>2.5.5</spring-boot-test.version>
         <org.lombok.version>1.16.10</org.lombok.version>
         <alibaba-fastjson.version>1.2.76</alibaba-fastjson.version>
         <dubbo.version>2.7.8</dubbo.version>
@@ -38,6 +41,8 @@
         <spring-boot-redis-version>2.5.6</spring-boot-redis-version>
         <google-guava-version>30.1.1-jre</google-guava-version>
         <commons-pool2-version>2.9.0</commons-pool2-version>
+        <elasticsearch-version>7.15.0</elasticsearch-version>
+        <elasticsearch-rest-high.version>7.13.0</elasticsearch-rest-high.version>
 
         <mysql-connector.version>8.0.11</mysql-connector.version>
         <maven.compiler.source>8</maven.compiler.source>
@@ -83,6 +88,11 @@
             <version>${alibaba-fastjson.version}</version>
         </dependency>
         <dependency>
+            <groupId>org.elasticsearch</groupId>
+            <artifactId>elasticsearch</artifactId>
+            <version>${elasticsearch-version}</version>
+        </dependency>
+        <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>${google-guava-version}</version>
@@ -99,6 +109,11 @@
             <version>${commons-pool2-version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.elasticsearch.client</groupId>
+            <artifactId>elasticsearch-rest-high-level-client</artifactId>
+            <version>7.13.0</version>
+        </dependency>
 
         <dependency>
             <groupId>org.apache.dubbo</groupId>
