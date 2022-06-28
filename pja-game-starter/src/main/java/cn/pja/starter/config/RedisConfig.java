@@ -80,7 +80,7 @@ public class RedisConfig {
 
     Jackson2JsonRedisSerializer jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer(Object.class);
 
-    @Bean
+    //@Bean
     public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
         RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
         // 设置工厂连接
@@ -115,7 +115,7 @@ public class RedisConfig {
         // hashValue的序列化方式设为jackson
         redisTemplate.setHashValueSerializer(jackson2JsonRedisSerializer);
     }
-    @Bean
+    //@Bean
     public LettuceConnectionFactory lettuceConnectionFactory() {
         GenericObjectPoolConfig genericObjectPoolConfig = new GenericObjectPoolConfig();
         genericObjectPoolConfig.setMaxIdle(maxIdle);
@@ -164,7 +164,7 @@ public class RedisConfig {
     }*/
 
 
-    @Bean("redisCacheManager")
+    //@Bean("redisCacheManager")
     @Primary
     public CacheManager cacheManager(LettuceConnectionFactory lettuceConnectionFactory) {
         RedisSerializer<String> redisSerializer = new StringRedisSerializer();

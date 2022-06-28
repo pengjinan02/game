@@ -2,7 +2,6 @@ package cn.pja.starter.utils;
 
 import com.google.common.collect.Lists;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.*;
 import org.springframework.stereotype.Component;
 
@@ -21,19 +20,19 @@ import java.util.concurrent.TimeUnit;
 @Component
 @Slf4j
 public class RedisUtils {
-    @Autowired
-    RedisTemplate redisTemplate;
+    //@Autowired
+    RedisTemplate template;
 
     public void test() {
-        ValueOperations<Serializable, Object> strOperations = redisTemplate.opsForValue();
-        ListOperations<Serializable, Object> listOperations = redisTemplate.opsForList();
-        SetOperations<Serializable, Object> setOperations = redisTemplate.opsForSet();
-        ZSetOperations<Serializable, Object> zSetOperations = redisTemplate.opsForZSet();
-        HashOperations<Serializable, Object, Object> hashOperations = redisTemplate.opsForHash();
-        ClusterOperations<Serializable, Object> clusterOperations = redisTemplate.opsForCluster();
-        GeoOperations<Serializable, Object> geoOperations = redisTemplate.opsForGeo();
-        HyperLogLogOperations<Serializable, Object> hyperLogLogOperations = redisTemplate.opsForHyperLogLog();
-        StreamOperations<Serializable, Object, Object> streamOperations = redisTemplate.opsForStream();
+        ValueOperations<Serializable, Object> strOperations = template.opsForValue();
+        ListOperations<Serializable, Object> listOperations = template.opsForList();
+        SetOperations<Serializable, Object> setOperations = template.opsForSet();
+        ZSetOperations<Serializable, Object> zSetOperations = template.opsForZSet();
+        HashOperations<Serializable, Object, Object> hashOperations = template.opsForHash();
+        ClusterOperations<Serializable, Object> clusterOperations = template.opsForCluster();
+        GeoOperations<Serializable, Object> geoOperations = template.opsForGeo();
+        HyperLogLogOperations<Serializable, Object> hyperLogLogOperations = template.opsForHyperLogLog();
+        StreamOperations<Serializable, Object, Object> streamOperations = template.opsForStream();
     }
 
     /**
@@ -45,7 +44,7 @@ public class RedisUtils {
     public boolean setValue(final String key, Object value) {
         boolean result = false;
         try {
-            ValueOperations<Serializable, Object> operations = redisTemplate.opsForValue();
+            ValueOperations<Serializable, Object> operations = template.opsForValue();
             operations.set(key, value);
             result = true;
         } catch (Exception e) {
@@ -66,7 +65,7 @@ public class RedisUtils {
     public boolean setValueAndExpireTime(final String key, Object value, Long expireTime, TimeUnit timeUnit) {
         boolean result = false;
         try {
-            redisTemplate.opsForValue().set(key, value, expireTime, timeUnit);
+            template.opsForValue().set(key, value, expireTime, timeUnit);
             result = true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -82,7 +81,7 @@ public class RedisUtils {
      * @return
      */
     public boolean setExpireTime(final String key, Long expireTime, TimeUnit timeUnit) {
-        return redisTemplate.expire(key, expireTime, timeUnit);
+        return template.expire(key, expireTime, timeUnit);
     }
 
     /**
@@ -91,7 +90,7 @@ public class RedisUtils {
      */
     public void deleteKey(final String... keys) {
         if (keys != null && keys.length > 0) {
-            redisTemplate.delete(Lists.newArrayList(keys));
+            template.delete(Lists.newArrayList(keys));
         }
     }
 
@@ -102,7 +101,7 @@ public class RedisUtils {
      * @param value
      */
     public boolean setValueIfAbsent(final String key, Object value) {
-        return redisTemplate.opsForValue().setIfAbsent(key, value);
+        return template.opsForValue().setIfAbsent(key, value);
     }
 
     /**
@@ -112,7 +111,7 @@ public class RedisUtils {
      * @param value
      */
     public boolean setValueAndExpireTimeIfAbsent(final String key, Object value, long expireTime, TimeUnit timeUnit) {
-        return redisTemplate.opsForValue().setIfAbsent(key, value, expireTime, timeUnit);
+        return template.opsForValue().setIfAbsent(key, value, expireTime, timeUnit);
     }
 
     /**
@@ -121,7 +120,7 @@ public class RedisUtils {
      * @return
      */
     public boolean existsKey(final String key) {
-        return redisTemplate.hasKey(key);
+        return template.hasKey(key);
     }
 
     /**
@@ -130,7 +129,7 @@ public class RedisUtils {
      * @return
      */
     public Object getValue(final String key) {
-        return redisTemplate.opsForValue().get(key);
+        return template.opsForValue().get(key);
     }
 
     /**
@@ -140,7 +139,7 @@ public class RedisUtils {
      * @param value
      */
     public void setHashValue(String key, Object hashKey, Object value) {
-        redisTemplate.opsForHash().put(key, hashKey, value);
+        template.opsForHash().put(key, hashKey, value);
     }
 
     /**
@@ -150,7 +149,7 @@ public class RedisUtils {
      * @return
      */
     public Object getHashValue(String key, Object hashKey) {
-        return  redisTemplate.opsForHash().get(key, hashKey);
+        return  template.opsForHash().get(key, hashKey);
     }
 
     /**
@@ -159,7 +158,7 @@ public class RedisUtils {
      * @param value
      */
     public void setListValue(String key, Object value) {
-        redisTemplate.opsForList().rightPush(key, value);
+        template.opsForList().rightPush(key, value);
     }
 
     /**
@@ -170,7 +169,7 @@ public class RedisUtils {
      * @return
      */
     public List<Object> getListValue(String key, long start, long end) {
-        return redisTemplate.opsForList().range(key, start, end);
+        return template.opsForList().range(key, start, end);
     }
 
     /**
@@ -179,7 +178,7 @@ public class RedisUtils {
      * @param value
      */
     public void addSet(String key, Object value) {
-        redisTemplate.opsForSet().add(key, value);
+        template.opsForSet().add(key, value);
     }
 
     /**
@@ -188,7 +187,7 @@ public class RedisUtils {
      * @return
      */
     public Set<Object> getMembers(String key) {
-        return redisTemplate.opsForSet().members(key);
+        return template.opsForSet().members(key);
     }
 
     /**
@@ -198,7 +197,7 @@ public class RedisUtils {
      * @param score
      */
     public void zAdd(String key, Object value, double score) {
-        redisTemplate.opsForZSet().add(key, value, score);
+        template.opsForZSet().add(key, value, score);
     }
 
     /**
@@ -209,7 +208,7 @@ public class RedisUtils {
      * @return
      */
     public Set<Object> rangeByScore(String key, double min, double max) {
-        ZSetOperations<String, Object> zSetOperations = redisTemplate.opsForZSet();
+        ZSetOperations<String, Object> zSetOperations = template.opsForZSet();
         return zSetOperations.rangeByScore(key, min, max);
     }
 
@@ -219,6 +218,6 @@ public class RedisUtils {
      * @return
      */
     public long getExpireTime(String key) {
-        return redisTemplate.getExpire(key);
+        return template.getExpire(key);
     }
 }
